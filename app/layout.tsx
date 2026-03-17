@@ -3,7 +3,6 @@ import { Inter, Playfair_Display } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({
@@ -86,7 +85,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
-      <head />
+      <head>
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5149589500636355"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="font-sans" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
@@ -94,12 +100,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <Script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5149589500636355"
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />

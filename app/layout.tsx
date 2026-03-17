@@ -86,12 +86,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        {/* Google AdSense - uncomment when you have an account */}
-        {/* <script
+        <script
           async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5149589500636355"
           crossOrigin="anonymous"
-        /> */}
+        />
       </head>
       <body className="font-sans" suppressHydrationWarning>
         <ThemeProvider

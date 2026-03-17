@@ -11,6 +11,7 @@ import { AuthorSection } from '@/components/blog/AuthorSection'
 import { RelatedPosts } from '@/components/blog/RelatedPosts'
 import { AffiliateSection } from '@/components/blog/AffiliateSection'
 import { AdUnit } from '@/components/ads/AdUnit'
+import { ShareButtons } from '@/components/blog/ShareButtons'
 import { Calendar, Clock, ChevronLeft, Tag } from 'lucide-react'
 
 interface Props {
@@ -150,6 +151,9 @@ export default async function BlogPostPage({ params }: Props) {
                     </div>
                   </div>
                 )}
+
+                {/* Share buttons */}
+                <ShareButtons title={post.title} slug={post.slug} />
 
                 {/* Affiliate section */}
                 {post.affiliateLinks && post.affiliateLinks.length > 0 && (

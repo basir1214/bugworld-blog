@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 import { DEFAULT_AUTHOR } from '@/types'
+import { postToFacebook } from '@/lib/facebook'
 
 const ARTICLES_DIR = path.join(process.cwd(), 'content/articles')
 
@@ -233,6 +234,21 @@ affiliateLinks:
     fs.writeFileSync(filePath, fullContent, 'utf-8')
 
     console.log(`Article saved: ${filePath}`)
+
+    // Post to Facebook page
+    const fbResult = await postToFacebook({
+      title: meta.title,
+      excerpt: meta.excerpt,
+      slug,
+      category,
+      coverImage: COVER_IMAGES[category] || COVER_IMAGES['Fascinating Facts'],
+      tags: meta.tags,
+    })
+    if (fbResult.success) {
+      console.log(`Facebook post published: ${fbResult.postId}`)
+    } else {
+      console.log(`Facebook post skipped: ${fbResult.error}`)
+    }
 
     return NextResponse.json({
       success: true,

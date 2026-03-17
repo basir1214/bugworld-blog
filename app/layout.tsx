@@ -93,7 +93,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         /> */}
       </head>
-      <body className="font-sans">
+      <body className="font-sans" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

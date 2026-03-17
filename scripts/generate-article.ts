@@ -8,6 +8,7 @@
 
 import fs from 'fs'
 import path from 'path'
+import { postToFacebook } from '../lib/facebook'
 
 // Load env from .env.local
 const envPath = path.join(process.cwd(), '.env.local')
@@ -209,6 +210,26 @@ affiliateLinks:
   console.log(`📄 File: content/articles/${slug}.md`)
   console.log(`🔗 URL:  /blog/${slug}`)
   console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`)
+
+  // Step 5: Post to Facebook (if credentials are configured)
+  if (process.env.FACEBOOK_PAGE_ACCESS_TOKEN && process.env.FACEBOOK_PAGE_ID) {
+    console.log('📘 Posting to Facebook...')
+    const fbResult = await postToFacebook({
+      title: meta.title,
+      excerpt: meta.excerpt,
+      slug,
+      category,
+      coverImage: COVER_IMAGES[category] || COVER_IMAGES['Fascinating Facts'],
+      tags: meta.tags,
+    })
+    if (fbResult.success) {
+      console.log(`✅ Facebook post published! ID: ${fbResult.postId}`)
+    } else {
+      console.log(`⚠️  Facebook post skipped: ${fbResult.error}`)
+    }
+  } else {
+    console.log('ℹ️  Facebook not configured — add FACEBOOK_PAGE_ACCESS_TOKEN and FACEBOOK_PAGE_ID to .env.local to auto-post')
+  }
 }
 
 main().catch((err) => {

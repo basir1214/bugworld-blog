@@ -37,6 +37,8 @@ jobs:
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'https://bugworld.vercel.app' }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
         run: |
           if [ -n "${{ github.event.inputs.topic }}" ] && [ -n "${{ github.event.inputs.category }}" ]; then
             npm run generate-article -- 0 "${{ github.event.inputs.topic }}" "${{ github.event.inputs.category }}"

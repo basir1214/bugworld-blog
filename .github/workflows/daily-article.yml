@@ -1,0 +1,63 @@
+name: Generate Daily Article
+
+on:
+  schedule:
+    # Run every day at 8:00 AM UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    # Allow manual triggers from GitHub Actions tab
+    inputs:
+      topic:
+        description: 'Custom article topic (optional)'
+        required: false
+      category:
+        description: 'Article category (optional)'
+        required: false
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate article
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'https://bugworld.vercel.app' }}
+        run: |
+          if [ -n "${{ github.event.inputs.topic }}" ] && [ -n "${{ github.event.inputs.category }}" ]; then
+            npm run generate-article -- 0 "${{ github.event.inputs.topic }}" "${{ github.event.inputs.category }}"
+          else
+            npm run generate-article
+          fi
+
+      - name: Commit and push new article
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "BugWorld Bot"
+          git add content/articles/
+          git diff --staged --quiet || git commit -m "🐛 Daily article: $(date '+%Y-%m-%d')"
+          git push
+
+      - name: Trigger Vercel deployment
+        if: success()
+        run: |
+          if [ -n "${{ secrets.VERCEL_DEPLOY_HOOK }}" ]; then
+            curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
+            echo "Vercel deployment triggered"
+          else
+            echo "No Vercel deploy hook configured - Vercel auto-deploys from Git"
+          fi

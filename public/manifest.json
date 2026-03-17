@@ -1,0 +1,21 @@
+{
+  "name": "BugWorld - Entomology Blog",
+  "short_name": "BugWorld",
+  "description": "Explore the hidden world of insects",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1f0d",
+  "theme_color": "#2d632d",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

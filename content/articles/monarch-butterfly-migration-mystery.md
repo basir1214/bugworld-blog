@@ -28,6 +28,8 @@ What makes this journey genuinely mind-bending is that **not a single butterfly 
 
 The monarch butterfly migration is one of the greatest unsolved puzzles — and most awe-inspiring demonstrations — of biological intelligence on Earth.
 
+n![Monarch butterfly migration](https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?w=800&h=450&fit=crop)
+
 ## The Four-Generation Cycle
 
 To understand the migration, you must understand the monarch's unusual life cycle. Throughout spring and summer, monarchs live fast and die young. Three to four generations are born, reproduce, and die within the same season. Each generation lives roughly 2-6 weeks — just long enough to lay eggs on milkweed plants before dying.
@@ -57,6 +59,8 @@ But what happens on cloudy days when the sun is hidden? Monarchs continue naviga
 This dual-navigation system provides extraordinary redundancy. Even if one system fails, the other keeps the butterfly on course — a biological engineering solution that aerospace designers would envy.
 
 ## Overwintering: The Mountains of Mexico
+n![Monarch butterflies in Mexico](https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&h=450&fit=crop)
+
 
 When monarchs arrive at their overwintering sites — primarily in the Transverse Neo-Volcanic Mountain Belt of central Mexico, at elevations of 2,400-3,600 meters — they cluster in densities of **10-40 million butterflies per hectare** on oyamel fir trees. The sheer weight of millions of resting monarchs can break branches.
 

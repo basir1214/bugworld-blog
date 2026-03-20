@@ -28,6 +28,8 @@ In every square kilometer of temperate forest, you'll find more beetle species t
 
 How did one group of insects achieve this extraordinary dominance? The answer involves evolutionary innovations that changed the rules of the game.
 
+n![Beetle diversity](https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop)
+
 ## The Invention of the Elytra
 
 Every beetle's signature feature — and arguably the key to their success — is the **elytra**: the hardened, shell-like wing covers that protect the delicate flying wings beneath. When a beetle isn't flying, its wings fold precisely under these protective cases, shielded from desiccation, abrasion, and predators.
@@ -48,6 +50,8 @@ Beetles didn't achieve their diversity overnight. Their radiation began approxim
 As flowering plants diversified into hundreds of thousands of species, offering flowers, fruits, seeds, pollen, roots, bark, and decaying wood as food sources, beetles evolved alongside them in a co-evolutionary arms race. New plants created new niches; new niches drove new beetle species. This process is still ongoing — researchers currently describe approximately **2,000 new beetle species per year**.
 
 A 2015 study in *Proceedings of the Royal Society B* analyzed beetle diversification rates and found that the association with flowering plants drove a **4.5-fold increase in speciation rate** compared to beetle lineages that didn't exploit these plants. The timing correlation is not coincidence — it's one of the clearest examples of how ecological opportunity drives evolutionary radiation.
+
+n![Beetle chemical defense](https://images.unsplash.com/photo-1596984608012-b73d6c2c7d6d?w=800&h=450&fit=crop)
 
 ## Masters of Chemical Warfare
 

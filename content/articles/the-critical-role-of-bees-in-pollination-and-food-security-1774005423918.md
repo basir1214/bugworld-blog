@@ -22,6 +22,8 @@ affiliateLinks:
     description: "Professional tools for insect collection and study"
 ---
 
+n![Bees pollinating flowers](https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=450&fit=crop)
+
 ## The Critical Role of Bees in Pollination and Global Food Security
 
 Bees are remarkable creatures, playing a vital role in the delicate balance of our global ecosystem. As expert pollinators, these industrious insects are responsible for the reproduction of a vast majority of the world's flowering plants, including many of the fruits and vegetables we rely on for sustenance. In fact, it's estimated that bees are directly responsible for the production of nearly 75% of the world's food crops. Understanding the critical importance of bees in pollination and food security is essential as we navigate the challenges of a growing global population.
@@ -39,6 +41,8 @@ The economic value of bee pollination is staggering. A 2016 study by the Food an
 In the United States alone, the value of bee pollination is estimated at over $15 billion annually. Crops such as almonds, blueberries, and cherries are almost entirely dependent on bee pollination, with up to 90% of their yields directly linked to these industrious insects.
 
 ### Threats to Bee Populations and Global Food Security
+n![Bee colony and honeycomb](https://images.unsplash.com/photo-1596984608012-b73d6c2c7d6d?w=800&h=450&fit=crop)
+
 
 Despite their critical importance, bee populations around the world are facing significant threats. Factors such as habitat loss, pesticide use, climate change, and disease have all contributed to alarming declines in both managed and wild bee populations.
 

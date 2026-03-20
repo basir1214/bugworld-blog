@@ -34,6 +34,8 @@ Consider: a single *Formica* ant has a brain containing roughly 250,000 neurons.
 
 This is emergence in its most spectacular form. The "mind" of the colony lives not in any single ant, but in the network of chemical signals flowing between them.
 
+n![Ant colony superorganism](https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&h=450&fit=crop)
+
 ## The Chemical Language of Ants
 
 Ants are essentially walking chemical factories. They communicate almost entirely through **pheromones** — volatile chemical compounds secreted from specialized glands. A single species may produce 10-20 distinct pheromones, each carrying precise information.
@@ -54,6 +56,8 @@ Within any mature colony, you'll find workers divided into highly specialized ca
 What's remarkable is that these castes aren't genetically fixed in most species. In *Harpegnathos saltator*, the Indian jumping ant, workers can literally transform into queens when the original queen dies — their ovaries enlarge, their brains rewire, and their lifespan extends from 7 months to 5 years. Recent research from the University of Pennsylvania identified the specific epigenetic mechanisms that trigger this transformation.
 
 ## The Architecture of Underground Cities
+n![Ants building underground city](https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=450&fit=crop)
+
 
 Leafcutter ant colonies — the most complex insect societies on Earth — construct underground cities spanning up to **50 square meters** and reaching 8 meters deep. These structures aren't random excavations. They're precisely engineered with:
 

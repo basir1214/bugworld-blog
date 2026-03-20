@@ -50,6 +50,83 @@ const COVER_IMAGES: Record<string, string> = {
   Conservation: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200&h=630&fit=crop',
 }
 
+// Multiple inline images per category for variety
+const INLINE_IMAGES: Record<string, string[]> = {
+  Beetles: [
+    'https://images.unsplash.com/photo-1596984608012-b73d6c2c7d6d?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1563459802257-2a97df940f11?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop',
+  ],
+  Butterflies: [
+    'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?w=800&h=450&fit=crop',
+  ],
+  Ants: [
+    'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1563459802257-2a97df940f11?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=450&fit=crop',
+  ],
+  'Bees & Wasps': [
+    'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1596984608012-b73d6c2c7d6d?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&h=450&fit=crop',
+  ],
+  Ecology: [
+    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=450&fit=crop',
+  ],
+  'Pest Control': [
+    'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1532634896-26909d0d4b9c?w=800&h=450&fit=crop',
+  ],
+  'Insect Behavior': [
+    'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop',
+  ],
+  Evolution: [
+    'https://images.unsplash.com/photo-1532634896-26909d0d4b9c?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1596984608012-b73d6c2c7d6d?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?w=800&h=450&fit=crop',
+  ],
+  'Fascinating Facts': [
+    'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&h=450&fit=crop',
+  ],
+  Conservation: [
+    'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=450&fit=crop',
+    'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&h=450&fit=crop',
+  ],
+}
+
+// Insert 2 images into article content — one after the 1st H2, one after the 3rd H2
+function insertInlineImages(content: string, category: string, title: string): string {
+  const images = INLINE_IMAGES[category] || INLINE_IMAGES['Fascinating Facts']
+  const sections = content.split(/(?=\n## )/)
+
+  if (sections.length < 3) return content
+
+  const result: string[] = []
+  let imageIndex = 0
+
+  sections.forEach((section, i) => {
+    result.push(section)
+    // Insert image after 1st section (intro) and after 3rd section
+    if ((i === 0 || i === 2) && imageIndex < images.length) {
+      const altText = i === 0 ? title : `${category} - detailed view`
+      result.push(`\n\n![${altText}](${images[imageIndex]})\n`)
+      imageIndex++
+    }
+  })
+
+  return result.join('')
+}
+
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -133,7 +210,8 @@ Requirements:
 
 IMPORTANT: Return ONLY the markdown content of the article body. Do NOT include title or frontmatter. Start directly with the introduction paragraph.`
 
-  const content = await callOpenRouter(contentPrompt, 2000)
+  const rawContent = await callOpenRouter(contentPrompt, 2000)
+  const content = insertInlineImages(rawContent, category, topic)
   console.log(`✅ Content generated (${content.split(' ').length} words approx)`)
 
   // Step 2: Generate metadata

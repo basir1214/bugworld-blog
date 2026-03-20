@@ -22,6 +22,8 @@ affiliateLinks:
     description: "Professional tools for insect collection and study"
 ---
 
+n![Insect pheromone communication](https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=450&fit=crop)
+
 ## The Unseen Language of Insects: Pheromones and Their Remarkable Precision
 
 Insects, the most abundant and diverse group of animals on our planet, have evolved a remarkable system of chemical communication that allows them to navigate their intricate social structures and respond to their environment with incredible precision. At the heart of this system are pheromones – powerful chemical signals that insects use to convey a wide range of information, from mating calls to alarm signals.
@@ -41,6 +43,8 @@ One remarkable example is the tobacco hornworm moth, *Manduca sexta*, which can 
 ### Navigating the Social Landscape
 
 Pheromones also play a crucial role in the social dynamics of insect colonies, such as those of ants, bees, and termites. These insects use a variety of pheromones to communicate information about their colony, including the presence of a queen, the location of a food source, and the need to defend the nest.
+n![Insects chemical signals](https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&h=450&fit=crop)
+
 
 For instance, the common garden ant, *Lasius niger*, uses a trail pheromone to guide nestmates to a food source. As the ant moves, it deposits a chemical trail that other ants can follow, allowing the colony to efficiently exploit resources and coordinate their foraging efforts.
 

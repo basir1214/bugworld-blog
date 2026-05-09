@@ -135,33 +135,29 @@ function slugify(text: string): string {
     .slice(0, 60)
 }
 
-async function callOpenRouter(prompt: string, maxTokens = 2000): Promise<string> {
-  const apiKey = process.env.OPENROUTER_API_KEY
-  if (!apiKey) throw new Error('OPENROUTER_API_KEY not set in .env.local')
+async function callGemini(prompt: string, maxTokens = 2000): Promise<string> {
+  const apiKey = process.env.GEMINI_API_KEY
+  if (!apiKey) throw new Error('GEMINI_API_KEY not set')
 
-  const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-      'HTTP-Referer': process.env.NEXT_PUBLIC_SITE_URL || 'https://bugworld.vercel.app',
-      'X-Title': 'BugWorld Blog',
-    },
-    body: JSON.stringify({
-      model: 'anthropic/claude-3-haiku',
-      messages: [{ role: 'user', content: prompt }],
-      max_tokens: maxTokens,
-      temperature: 0.7,
-    }),
-  })
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.7, maxOutputTokens: maxTokens },
+      }),
+    }
+  )
 
   if (!response.ok) {
     const error = await response.text()
-    throw new Error(`OpenRouter error ${response.status}: ${error}`)
+    throw new Error(`Gemini error ${response.status}: ${error}`)
   }
 
   const data = await response.json()
-  return data.choices[0].message.content
+  return data.candidates[0].content.parts[0].text
 }
 
 async function main() {
@@ -210,7 +206,7 @@ Requirements:
 
 IMPORTANT: Return ONLY the markdown content of the article body. Do NOT include title or frontmatter. Start directly with the introduction paragraph.`
 
-  const rawContent = await callOpenRouter(contentPrompt, 2000)
+  const rawContent = await callGemini(contentPrompt, 2000)
   const content = insertInlineImages(rawContent, category, topic)
   console.log(`✅ Content generated (${content.split(' ').length} words approx)`)
 
@@ -229,7 +225,7 @@ Return as valid JSON (no markdown, just JSON):
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"]
 }`
 
-  const metaRaw = await callOpenRouter(metaPrompt, 400)
+  const metaRaw = await callGemini(metaPrompt, 400)
   let meta = {
     title: topic,
     metaDescription: `Discover ${topic} in this expert entomology guide.`,
